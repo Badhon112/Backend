@@ -3,7 +3,7 @@ const App = express();
 const hbs = require("hbs");
 require("./Database/connection");
 const port = process.env.PORT || 5000;
-const Teacher=require('./Model/Administator_Schema')
+const Teacher = require("./Model/Administator_Schema");
 App.use(express.json());
 App.use(express.urlencoded({ extended: false }));
 App.set("view engine", "hbs");
@@ -12,11 +12,31 @@ App.get("/", (req, res) => {
 });
 App.post("/login", async (req, res) => {
   try {
-    const user_name = req.body.user_name;
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+    if (password === "1") {
+      res.render("Instractor");
+    } else {
+      res.render("login");
+    }
   } catch (err) {
-    res.status(404).send(err);
+    res.status(404).render("login");
   }
 });
+
+App.post("/instractor",async (req,res)=>{
+  try{
+    const name=req.body.name;
+    if(name==="Badhon"){
+      res.send("Succefull...")
+    }
+    // console.log(name);
+  }
+  catch(err){
+    res.status(404).send(err)
+  }
+})
 App.get("/Submit", async (req, res) => {
   res.render("Submit");
 });
@@ -45,21 +65,32 @@ App.post("/Administator", async (req, res) => {
 });
 
 App.post("/Admin.._form", async (req, res) => {
-
-  try{
-    const Number=new Teacher({
-      name:req.body.name,
-      email:req.body.email,
-      password:req.body.password,
-      User_Name:req.body.User_Name
-    })
-    const result=await Number.save();
-    res.render("Administator_From")
-  }
-  catch(err){
-    res.status(404).send(err)
+  try {
+    const Number = new Teacher({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      User_Name: req.body.User_Name,
+    });
+    const result = await Number.save();
+    res.render("Administator_From");
+  } catch (err) {
+    res.status(404).send(err);
   }
 });
+// App.post("/login", async (req,res)=>{
+//   try{
+//     const name=req.body.name;
+//     const email=req.body.email;
+//     const password=req.body.password;
+//     if(password==="1"){
+//       req.render("Instractor")
+//     }
+//   }
+//   catch(err){
+//     res.status(404).send(err)
+//   }
+// })
 
 App.listen(port, () => {
   console.log("Running Application...");
