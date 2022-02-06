@@ -3,16 +3,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administator Login</title>
+    <title>Student From</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <section class="text-gray-600 body-font relative">
-      <form action="/Administator" method="POST" class="container px-5 py-24 mx-auto">
+      <form action="/Student_log" method="POST" class="container px-5 py-24 mx-auto">
         <div class="flex flex-col text-center w-full mb-12">
           <h1
             class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
-          >Administator Login</h1>
+          >Student From</h1>
           <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Try To Be Better</p>
         </div>
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -22,11 +22,11 @@
                 <label
                   for="name"
                   class="leading-7 text-sm text-gray-600"
-                >Name</label>
+                >User name</label>
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="user_name"
                   value=""
                   class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
@@ -70,7 +70,7 @@
                 class="flex mx-auto w-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
               >Home</a>
             </div>
-            <div
+            {{!-- <div
               class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"
             >
               <a class="text-indigo-500">Administator</a>
@@ -144,7 +144,7 @@
                   </svg>
                 </a>
               </span>
-            </div>
+            </div> --}}
           </div>
         </div>
       </form>

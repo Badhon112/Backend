@@ -16,6 +16,10 @@ const University=new mongodb.Schema({
     User_Name:{
         type:String,
         require:true
+    },
+    type:{
+        type:String,
+        require:true
     }
 
 })
