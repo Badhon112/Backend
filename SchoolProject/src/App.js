@@ -28,13 +28,9 @@ App.post("/login", async (req, res) => {
       res.render("Account");
     } else {
       res.render("login");
-      // console.log(password);
     }
   } catch (err) {
     res.status(404).render("login");
-    // console.log('====================================');
-    // console.log(password);
-    // console.log('====================================');
   }
 });
 
@@ -48,9 +44,6 @@ App.post("/instractor", async (req, res) => {
     res.status(404).send(err);
   }
 });
-// App.get("/Submit", async (req, res) => {
-//   res.render("Submit");
-// });
 App.get("/About", async (req, res) => {
   res.render("About");
 });
@@ -71,7 +64,6 @@ App.post("/Administator", async (req, res) => {
     }
   } catch (err) {
     res.status(404).render("Administator");
-    // console.log(req.body.name);
   }
 });
 
